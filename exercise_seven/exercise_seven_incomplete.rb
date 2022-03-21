@@ -12,3 +12,8 @@ def is_primo(numero)
   true
 end
 
+def list_primos_menores(num_menor)
+  array_num_primos = (0..num_menor).select { |iterator| iterator if is_primo(iterator) }.sum
+end
+
+p list_primos_menores(10)
