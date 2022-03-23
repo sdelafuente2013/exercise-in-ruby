@@ -1,19 +1,20 @@
 # frozen_string_literal: true
 
-def restar_uno(num)
-  num - 1
-end
-
-def is_palindromo?(num)
+def is_palindromo(num)
   num.to_s.reverse == num.to_s
 end
 
-def recursiva_palindromo(max = 999)
-  (900..999).each do |iterator|
-    puts "#{max} x #{iterator} = #{max * iterator}" if is_palindromo?(max * iterator)
+def number_max_palindromo
+  number_max = 0
+  (100..999).each do |iterator1|
+    (100..999).each do |iterator2|
+      number_max = iterator1 * iterator2 if is_palindromo(iterator1 * iterator2) && (iterator1 * iterator2) > number_max
+    end
   end
-  recursiva_palindromo(restar_uno(max)) unless max <= 990
+  number_max
 end
 
-puts 'El palíndromo más grande obtenido a través de la multiplicación de dos números de 3 dígitos es:'
-recursiva_palindromo
+puts "El palíndromo más grande obtenido a través de la multiplicación de dos números de 3 dígitos es: #{number_max_palindromo}"
+
+
+
