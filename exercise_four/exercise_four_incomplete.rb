@@ -1,25 +1,10 @@
-def buscar_numero(numero)
-  count = 0
+# frozen_string_literal: true
 
-  (1..10).each do |iterator|
-    count += 1 if (numero % iterator).zero?
-    return numero if count == 10
+def number_divisible(cantidad_divisible)
+  (1..100000000).each do |iterator1|
+    count = (1..cantidad_divisible).count { |iterator2| (iterator1 % iterator2).zero? }
+    return iterator1 if count == cantidad_divisible
   end
+end
 
-  buscar_numero(numero+1)
-
-  # opcion 2
-  # while count < 20
-  #   if (numero % count).zero?
-  #     count += 1
-  #   else
-  #     numero += 1
-  #     count = 1
-  #   end
-  # end
-  #
-  # numero
- end
-
-
-p buscar_numero(2)
+puts "El numero mas chico que es divisible por los primeros 20 numeros es: #{number_divisible (16)}"
